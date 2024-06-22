@@ -1,0 +1,47 @@
+$schema: https://azuremlschemas.azureedge.net/promptflow/latest/Flow.schema.json
+environment:
+  python_requirements_txt: requirements.txt
+inputs:
+  text:
+    type: string
+    default: 我叫周畅，天蝎座，我的问题是：我家小孩期末开始成绩将会如何
+outputs:
+  output_prompt:
+    type: string
+    reference: ${LLM_GPT.output}
+nodes:
+- name: Chara
+  type: prompt
+  source:
+    type: code
+    path: Chara.jinja2
+  inputs:
+    text: ${SystemPrompt.output}
+- name: SystemPrompt
+  type: prompt
+  source:
+    type: code
+    path: hello.jinja2
+  inputs:
+    text: ${inputs.text}
+- name: News
+  type: prompt
+  source:
+    type: code
+    path: News.jinja2
+  inputs:
+    text: ${Chara.output}
+- name: AI_Template
+  type: prompt
+  source:
+    type: code
+    path: AI_Template.jinja2
+  inputs:
+    text: ${News.output}
+- name: LLM_GPT
+  type: python
+  source:
+    type: code
+    path: hello.py
+  inputs:
+    input1: ${AI_Template.output}

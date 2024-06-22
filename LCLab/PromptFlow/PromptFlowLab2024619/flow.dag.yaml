@@ -1,0 +1,33 @@
+$schema: https://azuremlschemas.azureedge.net/promptflow/latest/Flow.schema.json
+environment:
+  python_requirements_txt: requirements.txt
+inputs:
+  text:
+    type: string
+    default: 我购买了两个 Yamaha WX-021 无线音箱，请问如何设置环绕
+outputs:
+  output_prompt:
+    type: string
+    reference: ${LLM_AOAI_GPT35.output}
+nodes:
+- name: Expected_User_Input
+  type: prompt
+  source:
+    type: code
+    path: Expected_User_Input.jinja2
+  inputs: {}
+- name: LLM_AOAI_GPT35
+  type: python
+  source:
+    type: code
+    path: LLM_AOAI_GPT35.py
+  inputs:
+    input1: ${Adding_System_Prompt.output}
+  aggregation: false
+- name: Adding_System_Prompt
+  type: prompt
+  source:
+    type: code
+    path: hello.jinja2
+  inputs:
+    text: ${Expected_User_Input.output}

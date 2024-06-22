@@ -1,0 +1,33 @@
+$schema: https://azuremlschemas.azureedge.net/promptflow/latest/Flow.schema.json
+environment:
+  python_requirements_txt: requirements.txt
+inputs:
+  text:
+    type: string
+    default: Give me the total cost
+outputs:
+  output_prompt:
+    type: string
+    reference: ${Evaluate_Output.output}
+nodes:
+- name: Evaluate_Output
+  type: python
+  source:
+    type: code
+    path: Evaluate_Output.py
+  inputs:
+    input1: ${Search_CSV.output}
+- name: System_Prompt
+  type: prompt
+  source:
+    type: code
+    path: hello.jinja2
+  inputs:
+    text: ${inputs.text}
+- name: Search_CSV
+  type: python
+  source:
+    type: code
+    path: LLM_AOAI_GPT35.py
+  inputs:
+    input1: ${System_Prompt.output}

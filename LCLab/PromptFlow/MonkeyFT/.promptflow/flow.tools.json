@@ -1,0 +1,63 @@
+{
+  "package": {},
+  "code": {
+    "hello.jinja2": {
+      "type": "prompt",
+      "inputs": {
+        "text": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "description": "Please replace the template with your own prompt.",
+      "source": "hello.jinja2"
+    },
+    "hello.py": {
+      "type": "python",
+      "inputs": {
+        "input1": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "description": "    llm = AzureOpenAI(\n        deployment_name=\"gpt4\",\n    )\n    response = llm.invoke(input1)\n    print('\n\ninput\uff1a\n' + input1 + 'response\uff1a\n\n' + response)\n    ",
+      "source": "hello.py",
+      "function": "my_python_tool"
+    },
+    "Chara.jinja2": {
+      "type": "prompt",
+      "inputs": {
+        "text": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "Chara.jinja2"
+    },
+    "News.jinja2": {
+      "type": "prompt",
+      "inputs": {
+        "text": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "News.jinja2"
+    },
+    "AI_Template.jinja2": {
+      "type": "prompt",
+      "inputs": {
+        "text": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "AI_Template.jinja2"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+$schema: https://azuremlschemas.azureedge.net/promptflow/latest/Flow.schema.json
+environment:
+  python_requirements_txt: requirements.txt
+inputs:
+  text:
+    type: string
+    default: How is yamaha speaker's quality? Give me some real case report.
+outputs:
+  output_prompt:
+    type: string
+    reference: ${LLM_AOAI.output}
+nodes:
+- name: Adding_System_Prompt
+  type: prompt
+  source:
+    type: code
+    path: hello.jinja2
+  inputs:
+    text: ${inputs.text}
+- name: LLM_AOAI
+  type: python
+  source:
+    type: code
+    path: hello.py
+  inputs:
+    input1: ${Adding_System_Prompt.output}

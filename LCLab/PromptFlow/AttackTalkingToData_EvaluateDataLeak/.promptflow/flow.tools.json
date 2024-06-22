@@ -1,0 +1,40 @@
+{
+  "package": {},
+  "code": {
+    "hello.jinja2": {
+      "type": "prompt",
+      "inputs": {
+        "text": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "hello.jinja2"
+    },
+    "LLM_AOAI_GPT35.py": {
+      "type": "python",
+      "inputs": {
+        "input1": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "LLM_AOAI_GPT35.py",
+      "function": "my_python_tool"
+    },
+    "Evaluate_Output.py": {
+      "type": "python",
+      "inputs": {
+        "input1": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "Evaluate_Output.py",
+      "function": "my_python_tool"
+    }
+  }
+}
