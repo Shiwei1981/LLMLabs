@@ -4,7 +4,7 @@ environment:
 inputs:
   text:
     type: string
-    default: Give me the total cost
+    default: Give me owners of Azure Resources
 outputs:
   output_prompt:
     type: string

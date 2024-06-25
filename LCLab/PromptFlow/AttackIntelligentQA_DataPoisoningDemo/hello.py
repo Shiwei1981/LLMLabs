@@ -26,8 +26,6 @@ import PyPDF2
 from PyPDF2 import PdfReader
 
 os.environ["AZURE_OPENAI_API_VERSION"] = "2023-12-01-preview"
-os.environ["AZURE_OPENAI_ENDPOINT"] = "https://aoaius.openai.azure.com/"
-os.environ["AZURE_OPENAI_API_KEY"] = "f27f3aee0a9d46ebbd89e0d95bd07345"
 os.environ["AZURE_OPENAI_CHAT_DEPLOYMENT_NAME"] = "gtp-35-tb-deployment"
 
 def chunk_processing():

@@ -13,10 +13,7 @@ from langchain.agents.agent_types import AgentType
 @tool
 def my_python_tool(input1: str) -> str:
     model = AzureChatOpenAI(
-        openai_api_version="2023-12-01-preview",
         azure_deployment="gtp-35-tb-deployment",
-        azure_endpoint="https://aoaius.openai.azure.com/",
-        api_key="f27f3aee0a9d46ebbd89e0d95bd07345",
     )
 
     agent = create_csv_agent(
@@ -24,6 +21,7 @@ def my_python_tool(input1: str) -> str:
         "2024-06-18-a.csv",
         verbose=True,
         agent_type=AgentType.ZERO_SHOT_REACT_DESCRIPTION,
+        allow_dangerous_code=True,
     )
 
     agent.handle_parsing_errors = True

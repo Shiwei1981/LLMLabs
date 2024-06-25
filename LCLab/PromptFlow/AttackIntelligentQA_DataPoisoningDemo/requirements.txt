@@ -1,1 +1,13 @@
 promptflow
+PyPDF2
+faiss-cpu
+pycryptodome
+langchain
+langchain_openai
+langchain_experimental
+langchain_core
+promptflow-core
+promptflow-tools
+promptflow-devkit
+promptflow-tracing
+promptflow-azure

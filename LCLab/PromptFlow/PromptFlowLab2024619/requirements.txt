@@ -1,1 +1,10 @@
 promptflow
+langchain
+langchain_openai
+langchain_core
+promptflow
+promptflow-core
+promptflow-tools
+promptflow-devkit
+promptflow-tracing
+promptflow-azure
