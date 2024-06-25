@@ -1,0 +1,10 @@
+0. check conda env list
+1. clear PromptFlow\build folder, valid dockerfile created
+2. build NormalPromptInjectJailbreak pf to build folder
+3. copy requirements.txt
+4. docker build .\ -t npf
+5. docker run -d -p 8080:8080 -v C:\dockerdata:/app npf
+6. validate service
+7. open PyRIT, run attackchatbot.py
+8. check prompt record
+9. delete container, delete image
